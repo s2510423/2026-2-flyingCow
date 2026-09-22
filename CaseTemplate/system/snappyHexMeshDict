@@ -1,0 +1,109 @@
+FoamFile
+{
+    version                     2.0;
+    format                      ascii;
+    class                       dictionary;
+    object                      snappyHexMeshDict;
+}
+
+mergeTolerance                  1e-6;
+castellatedMesh                 true;
+snap                            true;
+addLayers                       true;
+
+addLayersControls
+{
+    relativeSizes               true;
+
+    layers
+    {
+        human
+        {
+            nSurfaceLayers      3;
+        }
+    }
+
+    expansionRatio              1.2;
+    finalLayerThickness         0.3;
+    minThickness                0.2;
+    nGrow                       1;
+    featureAngle                60;
+    slipFeatureAngle            30;
+    nRelaxIter                  5;
+    nSmoothSurfaceNormals       1;
+    nSmoothNormals              3;
+    nSmoothThickness            10;
+    maxFaceThicknessRatio       0.5;
+    maxThicknessToMedialRatio   0.3;
+    minMedianAxisAngle          90;
+    nBufferCellsNoExtrude       0;
+    nLayerIter                  50;
+}
+geometry
+{
+    human
+    {
+        type                    triSurfaceMesh;
+        file                    "HumanHQ0deg.stl";
+        name                    human;
+    }
+}
+
+features
+(
+    {
+        file                    "HumanHQ0deg.eMesh";
+        level                   3;
+    }
+);
+
+castellatedMeshControls
+{
+    maxLocalCells               1000000;
+    maxGlobalCells              2000000;
+    minRefinementCells          0;
+
+    nCellsBetweenLevels         3;
+
+    locationInMesh              (1 1 1);
+
+    refinementSurfaces          
+    {   
+        human 
+        { 
+            level               (3 4); 
+            patchInfo
+            {
+                type            wall;
+                name            human;
+            }
+        }
+    }
+
+    resolveFeatureAngle         0;
+    allowFreeStandingZoneFaces  false;
+}
+
+snapControls
+{
+    nSmoothPatch                3;
+    tolerance                   4.0;
+    nSolveIter                  30;
+    nRelaxIter                  5;
+}
+
+meshQualityControls
+{
+    maxNonOrtho                 65;
+    maxBoundarySkewness         20;
+    maxInternalSkewness         4;
+    minVol                      1e-13;
+    minTetQuality               1e-9;
+    minDeterminant              0.001;
+    minFaceWeight               0.02;
+    minVolRatio                 0.01;
+    errorReduction              0.75;
+    maxConcave                  80;
+    minTwist                    0.02;
+    nSmoothScale                4;
+}

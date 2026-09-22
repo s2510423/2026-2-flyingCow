@@ -1,0 +1,27 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0";
+    object      U;
+}
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 {motherfucker} 0);
+
+boundaryField
+{
+    front
+    {
+        type    fixedValue;
+        value   uniform (0 {motherfucker} 0);
+    }
+    bull       { type  noSlip; }
+    bottom      { type  noSlip; }
+    back        { type  zeroGradient; }
+    top         { type  zeroGradient; }
+    left        { type  zeroGradient; }
+    right       { type  zeroGradient; }
+}
