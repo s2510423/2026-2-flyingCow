@@ -10,7 +10,7 @@ class Sweep():
         self.registry = []
         self.variable = variable
         for i in numpy.arange(min,max+interval,interval):
-            case_path = self.path / f"{variable} -> {i}"
+            case_path = self.path / f"{variable}_{i}"
             template_path = self.path / "CaseTemplate"
             match variable:
                 case 'velocity': self.registry.append(case.Case(case_path, template_path, vel=i))
