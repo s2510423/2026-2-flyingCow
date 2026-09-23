@@ -49,13 +49,6 @@ geometry
     }
 }
 
-features
-(
-    {
-        file                    "cow.eMesh";
-        level                   3;
-    }
-);
 
 castellatedMeshControls
 {
@@ -65,7 +58,7 @@ castellatedMeshControls
 
     nCellsBetweenLevels         3;
 
-    locationInMesh              (1 1 1);
+    locationInMesh              (4 4 4);
 
     refinementSurfaces          
     {   
@@ -79,8 +72,23 @@ castellatedMeshControls
             }
         }
     }
-
-
+    refinementRegions
+    {
+        cow
+        {
+            mode                distance;
+            levels              ((1.0 4));
+        }
+    }
+        
+    features
+    (
+        {
+            file                "cow.eMesh";
+            level               3;
+        }
+    );
+    resolveFeatureAngle         30;
     allowFreeStandingZoneFaces  false;
 }
 
@@ -97,13 +105,16 @@ meshQualityControls
     maxNonOrtho                 65;
     maxBoundarySkewness         20;
     maxInternalSkewness         4;
+    maxConcave                  80;
     minVol                      1e-13;
     minTetQuality               1e-9;
+    minVolCollapseRatio         0.01;
+    minArea                     -1;
+    minTwist                    0.02;
     minDeterminant              0.001;
     minFaceWeight               0.02;
     minVolRatio                 0.01;
-    errorReduction              0.75;
-    maxConcave                  80;
-    minTwist                    0.02;
+    minTriangleTwist            -1;
     nSmoothScale                4;
+    errorReduction              0.75;
 }

@@ -2,7 +2,7 @@ FoamFile
 {
     version                     2.0;
     format                      ascii;
-    class                       fvSolution;
+    class                       dictionary;
     location                    "system";
     object                      fvSolution;
 }
