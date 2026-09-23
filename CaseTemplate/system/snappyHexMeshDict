@@ -44,7 +44,7 @@ geometry
     human
     {
         type                    triSurfaceMesh;
-        file                    "HumanHQ0deg.stl";
+        file                    "Human.stl";
         name                    human;
     }
 }
@@ -52,7 +52,7 @@ geometry
 features
 (
     {
-        file                    "HumanHQ0deg.eMesh";
+        file                    "Human.eMesh";
         level                   3;
     }
 );
@@ -80,7 +80,7 @@ castellatedMeshControls
         }
     }
 
-    resolveFeatureAngle         0;
+
     allowFreeStandingZoneFaces  false;
 }
 

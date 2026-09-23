@@ -8,14 +8,15 @@ class Sweep():
         self.path = path
     def begin(self, variable: str, min:float, max:float, interval:float):
         self.registry = []
-        for i in numpy.arrange(min,max+interval,interval):
+        self.variable = variable
+        for i in numpy.arange(min,max+interval,interval):
             case_path = self.path / f"{variable} -> {i}"
             template_path = self.path / "CaseTemplate"
             match variable:
                 case 'velocity': self.registry.append(case.Case(case_path, template_path, vel=i))
                 case 'angle': self.registry.append(case.Case(case_path, template_path, angle=i))
                 case _: raise ValueError(f"[INVALID]: variable '{variable}' is not proper. variable is required to be either 'velocity' or 'angle'")
-            self.variable = variable
+        
     def simpleFoam_monocore(self):
         for i in self.registry:
             i.run_cmd(['simpleFoam'])
@@ -66,3 +67,4 @@ class Sweep():
         else: self.simpleFoam_parallel(core)
         data = self.parse_all()
         self.plot(data)
+

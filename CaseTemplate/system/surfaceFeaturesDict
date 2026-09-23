@@ -8,7 +8,7 @@ FoamFile
 
 surfaces
 (
-    "HumanHQ0deg.stl"
+    "Human.stl"
 );
 
 includedAngle 180;

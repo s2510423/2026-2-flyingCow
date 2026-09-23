@@ -44,7 +44,7 @@ geometry
     bull
     {
         type                    triSurfaceMesh;
-        file                    "bullHQ0deg.stl";
+        file                    "bull.stl";
         name                    bull;
     }
 }
@@ -52,7 +52,7 @@ geometry
 features
 (
     {
-        file                    "bullHQ0deg.eMesh";
+        file                    "bull.eMesh";
         level                   3;
     }
 );
@@ -65,7 +65,7 @@ castellatedMeshControls
 
     nCellsBetweenLevels         3;
 
-    locationInMesh              (1 1 1);
+    locationInMesh              (4 4 4);
 
     refinementSurfaces          
     {   
@@ -80,7 +80,7 @@ castellatedMeshControls
         }
     }
 
-    resolveFeatureAngle         0;
+    resolveFeatureAngle         30;
     allowFreeStandingZoneFaces  false;
 }
 

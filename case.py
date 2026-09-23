@@ -4,12 +4,12 @@ import subprocess
 import re
 
 class Case():
-    def __init__(self, path:Path, source:Path, angle:float, vel:float = 50):
+    def __init__(self, path:Path, source:Path, angle:float = 0, vel:float = 50):
         self.path = path
         self.angle = angle
         self.vel = vel
         shutil.copytree(source,path,dirs_exist_ok=True)
-        if not angle == 0: 
+        if angle != 0: 
             subprocess.run(["transformPoints", "-rollPitchYaw", f"(0, {angle}, 0)"], cwd=self.path)
         if not vel == 50: 
             Ufile = (self.path / "0" / "U")

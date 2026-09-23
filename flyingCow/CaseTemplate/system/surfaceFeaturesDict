@@ -8,7 +8,7 @@ FoamFile
 
 surfaces
 (
-    "cowHQ0deg.stl"
+    "cow.stl"
 );
 
 includedAngle 180;

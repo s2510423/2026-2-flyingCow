@@ -44,7 +44,7 @@ geometry
     cow
     {
         type                    triSurfaceMesh;
-        file                    "cowHQ0deg.stl";
+        file                    "cow.stl";
         name                    cow;
     }
 }
@@ -52,7 +52,7 @@ geometry
 features
 (
     {
-        file                    "cowHQ0deg.eMesh";
+        file                    "cow.eMesh";
         level                   3;
     }
 );
@@ -80,7 +80,7 @@ castellatedMeshControls
         }
     }
 
-    resolveFeatureAngle         0;
+
     allowFreeStandingZoneFaces  false;
 }
 
